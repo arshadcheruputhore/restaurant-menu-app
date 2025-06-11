@@ -6,11 +6,7 @@ require("dotenv").config();
 const menuRoutes = require("./routes/menuRoutes");
 
 const app = express();
-app.use(cors({
-    origin: ["https://restaurant-menu-app-red.vercel.app/", "http://localhost:5000"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  }));
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/menus", menuRoutes);
