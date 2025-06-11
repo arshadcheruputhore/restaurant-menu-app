@@ -50,7 +50,7 @@ exports.deleteMenuItem = async (req, res) => {
 // UPDATE menu item
 exports.updateMenuItem = async (req, res) => {
   const { menuId, itemId } = req.params;
-  const { name, description, price } = req.body;
+  const { itemName, description, price } = req.body;
 
   try {
     const menu = await Menu.findById(menuId);
@@ -59,7 +59,7 @@ exports.updateMenuItem = async (req, res) => {
     const item = menu.items.id(itemId);
     if (!item) return res.status(404).json({ message: "Item not found" });
 
-    item.name = name ?? item.name;
+    item.itemName = itemName ?? item.itemName;
     item.description = description ?? item.description;
     item.price = price ?? item.price;
 
