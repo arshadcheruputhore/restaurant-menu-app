@@ -5,6 +5,7 @@
 
 # dotenv environment variables
 .env
+/backend/.env
 
 # production
 /build
